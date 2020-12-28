@@ -6,3 +6,9 @@
     ```bash-
     $ docker-compose up -d
     ```
+
+> ### Dockerhub:
+> - _agftech/nginx_ 
+> - _agftech/app_ 
+> - _agftech/db_ 
+- --
