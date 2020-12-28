@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    h3(class='title') Add PEOPLE:
+      table.ui.celled.table.center.aligned
+        tr(style='width:50%, height:30px')
+            td
+                form(action="/people" method="post")
+                    label NAME: 
+                        input(style='width:50%', type="text" name="name")
+                        input(type="submit" value="Save")
+    a(href="http://localhost:8080/people") BACK

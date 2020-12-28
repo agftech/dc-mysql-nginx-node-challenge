@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+  table.ui.celled.table.center.aligned
+    thead
+      tr
+        th(colspan='6')
+          <i class="fas fa-user-plus"></i>
+          a(href="http://localhost:8080/people/create")  add PEOPLE
+      tr
+        th NAME
+        th
+          <i class="fas fa-user-times"></i>
+        th
+          <i class="fas fa-user-edit"></i>
+    tbody
+      for row in data
+        tr
+          td #{row.name}
+          td(style='padding:10px')
+            form(action=`/people/${row.id}/edit`)
+              input(type="submit", value="Update")
+          td(style='padding:10px')
+            form(action=`/people/${row.id}?_method=DELETE`, method="post")
+              input(type="submit", value="Delete")
+  a(href="http://localhost:8080") HOME

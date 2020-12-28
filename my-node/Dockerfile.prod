@@ -1,0 +1,18 @@
+FROM node:15-slim
+
+WORKDIR /usr/peopleapp/app
+
+ADD peopleapp .
+
+RUN apt-get update \
+    && apt-get install -y wget \
+    && apt-get upgrade dist -y \
+    && apt-get clean \
+    && apt-get autoclean \
+    && rm -rf /var/lib/apt/lists/*
+
+EXPOSE 3000
+
+RUN npm install --no-optional && npm install npm@latest && npm fund && npm audit fix --force && npm cache clean --force
+
+CMD [ "npm", "start"]
